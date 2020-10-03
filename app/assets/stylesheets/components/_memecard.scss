@@ -1,0 +1,24 @@
+.memecard-container{
+  margin-top: 100px;
+  margin-left: 100px;
+  width: 50vh;
+  height: 70vh;
+  border: 3px solid black;
+  display: flex;
+  flex-direction: column;
+}
+
+
+.meme-title{
+  height: 10vh;
+}
+
+.meme-image{
+  height: 10vh;
+}
+
+.meme-votes{
+  height: 10vh;
+}
+
+
