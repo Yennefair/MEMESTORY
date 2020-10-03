@@ -1,0 +1,44 @@
+.popnav-bar{
+  display: flex;
+  justify-content: center;
+}
+
+.popnav-container{
+  width: 80vh;
+  display: flex;
+  justify-content: space-around;
+  background: #22303C;
+  border-radius: 8px;
+  font-size: 0;
+  box-shadow: 0 2px 3px 0 rgba(0,0,0,.1);
+}
+
+.popnav-container a{
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 2.5vh;
+  text-transform: uppercase;
+  color: white;
+  line-height: 50px;
+  text-align: center;
+}
+
+.animation{
+  padding: 0 15px;
+}
+
+.animation:hover{
+  background: #3BCEAD;
+  border-radius: 8px;
+  height: 100%;
+}
+
+
+
+
+
+
+
+
+
+

@@ -1,1 +1,18 @@
-// Specific CSS for your home-page
+// Specific CSS for your layout css app & home
+body{
+  background-color: #ebf4f2;
+}
+
+.home-title-container{
+  border: 5px solid black;
+  height: 25vh;
+}
+
+.home-description-container{
+  height: 190vh;
+  border: 3px solid pink;
+}
+
+.don-ecran{
+  width: 100%;
+}
