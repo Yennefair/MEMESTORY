@@ -16,10 +16,12 @@
   <div class="meme-votes">
 
     <div class="upvote-container">
-      <% if current_user.voted_for? @meme %>
-        <p>you  have upvoted</p>
-        <% else !current_user.voted_for? @meme %>
-        <p> you have downvoted</p>
+      <% unless !user_signed_in? %>
+        <% if current_user.voted_for? @meme %>
+          <p>you  have upvoted</p>
+          <% else !current_user.voted_for? @meme %>
+          <p> you have downvoted</p>
+        <% end %>
       <% end %>
       <i class="fas fa-angle-up"></i>
       <div class="nb-vote">
@@ -34,3 +36,18 @@
 
   </div>
 </div>
+
+
+<%= link_to "create meme", new_meme_path,class: "btn btn-primary" %>
+
+
+
+
+
+
+
+
+
+
+
+
