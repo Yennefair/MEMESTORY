@@ -4,39 +4,39 @@
 
 <%= render 'shared/memecard' %>
 
-<div class="memecard-container">
-  <div class="meme-title">
-    <p><%= @memes.first.title %></p>
-  </div>
+<% @memes.each do |m| %>
+  <div class="memecard-container">
+    <div class="meme-title">
+      <p><%= m.title %></p>
+    </div>
 
-  <div class="meme-image">
+    <div class="meme-image">
+        <%= cl_image_tag m.photo.key %>
+    </div>
 
-  </div>
+    <div class="meme-votes">
 
-  <div class="meme-votes">
-
-    <div class="upvote-container">
-      <% unless !user_signed_in? %>
-        <% if current_user.voted_for? @meme %>
-          <p>you  have upvoted</p>
-          <% else !current_user.voted_for? @meme %>
-          <p> you have downvoted</p>
+      <div class="upvote-container">
+        <% unless !user_signed_in? %>
+          <% if current_user.voted_for? m %>
+            <p>you  have upvoted</p>
+            <% else !current_user.voted_for? m %>
+            <p> you have downvoted</p>
+          <% end %>
         <% end %>
-      <% end %>
-      <i class="fas fa-angle-up"></i>
-      <div class="nb-vote">
-        <p><%= @memes.first.get_upvotes.size %></p>
+        <i class="fas fa-angle-up"></i>
+        <div class="nb-vote">
+          <p><%= m.get_upvotes.size %></p>
+        </div>
+      </div>
+
+      <div class="downvote-container">
+        <i class="fas fa-angle-down"></i>
+        <p><%= m.get_downvotes.size %></p>
       </div>
     </div>
-
-    <div class="downvote-container">
-      <i class="fas fa-angle-down"></i>
-      <p><%= @memes.first.get_downvotes.size %></p>
-    </div>
-
-  </div>
-</div>
-
+ </div>
+<% end %>
 
 <%= link_to "create meme", new_meme_path,class: "btn btn-primary" %>
 

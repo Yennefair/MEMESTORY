@@ -12,8 +12,7 @@
         <%= f.input :source, class: "w-100" %>
       </div>
     </div>
-    <%= f.input :photo %>
-    <%= f.input :photo_cache, as: :hidden %>
+    <%= f.input :photo, as: :file %>
     <div class="border my-3"></div>
     <div class="mb-2">
       <%= f.button :submit, class: "btn btn-success w-100" %>

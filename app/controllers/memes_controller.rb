@@ -4,7 +4,6 @@ class MemesController < ApplicationController
 
   def index
     @memes = Meme.all
-    @meme = Meme.find(1)
   end
 
   def new
@@ -17,6 +16,11 @@ class MemesController < ApplicationController
 
   def create
     @meme = Meme.new(meme_params)
+    if @meme.save
+      redirect_to memes_path
+    else
+      render :new
+    end
   end
 
   def vote
@@ -26,6 +30,6 @@ class MemesController < ApplicationController
   def meme_params
     # *Strong params*: You need to *whitelist* what can be updated by the user
     # Never trust user data!
-    params.require(:meme).permit(:title, :source)
+    params.require(:meme).permit(:title, :source, :photo)
   end
 end
