@@ -14,7 +14,7 @@
 }
 
 .meme-image{
-  height: 10vh;
+  height: 35vh;
 }
 
 .meme-votes{
@@ -22,3 +22,7 @@
 }
 
 
+.meme-votes{
+  display: flex;
+  justify-content: space-around;
+}
