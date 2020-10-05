@@ -5,5 +5,5 @@ export default class extends Controller {
 
   refresh() {
     console.log(this.countTarget);
-  }
+ }
 }

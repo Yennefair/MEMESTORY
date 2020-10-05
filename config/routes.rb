@@ -6,7 +6,8 @@ Rails.application.routes.draw do
 
   resources :memes do
     member do
-      put "like" => "memes#vote"
+      put "upvote" => "memes#upvote"
+      put "downvote" => "memes#downvote"
     end
   end
 

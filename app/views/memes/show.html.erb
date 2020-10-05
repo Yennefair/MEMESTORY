@@ -8,17 +8,29 @@
       <%= cl_image_tag @meme.photo.key %>
   </div>
 
-  <div class="meme-votes" data-controller="voter">
+  <div class="meme-votes">
 
       <div class="upvote-container" >
-        <p data-target="voter.count"><%= @meme.get_upvotes.size %></p>
-        <a class="fas fa-angle-up" data-action="click->voter#refresh" href=""></a>
+        <%= link_to upvote_meme_path(@meme), class:"", method: :put do %>
+        <button class="fas fa-angle-up"></button>
+          <p><%= @meme.get_upvotes.size %></p>
+        <% end %>
       </div>
 
-      <div class="downvote-container" data-controller="voter">
-        <p data-target="voter.count"><%= @meme.get_downvotes.size %></p>
-        <a class="fas fa-angle-down" data-action="click->voter#refresh" href=""></a>
+
+      <div class="downvote-container">
+        <%= link_to downvote_meme_path(@meme), class:"fas fa-angle-down", method: :put do %>
+        <span><%= @meme.get_downvotes.size %></span>
+        <% end %>
       </div>
+  </div>
+
+  <div data-controller="voter">
+    <div class="div">
+      <span data-target="voter.count"><%= @meme.get_upvotes.size %></span>
+    </div>
+
+    <button data-action="click->voter#refresh" class="btn btn-primary"></button>
   </div>
 
 </div>

@@ -1,13 +1,10 @@
 class MemesController < ApplicationController
-  before_action :authenticate_user!, only: [:vote]
+  before_action :authenticate_user!
+  before_action :set_meme, only: [:show, :edit, :update, :destroy, :upvote, :downvote]
   respond_to :js, :json, :html
 
   def index
     @memes = Meme.all
-    respond_to do |format|
-      format.html
-      format.json { render json: { memes: @memes.get_upvotes.size } }
-    end
   end
 
   def new
@@ -15,7 +12,6 @@ class MemesController < ApplicationController
   end
 
   def show
-    @meme = Meme.find(params[:id])
   end
 
   def create
@@ -27,19 +23,26 @@ class MemesController < ApplicationController
     end
   end
 
-  def vote
-    if current_user.voted_for? @meme
-      @meme.downvote_from current_user
-    else
-      @meme.vote_by current_user
+  def upvote
+    @meme.upvote_from current_user
+    respond_to do |format|
+      format.html
+      format.json { render json: { memes: @memes.get_upvotes.size } }
     end
   end
 
-private
+  def downvote
+    @meme.downvote_from current_user
+  end
+
+ private
 
   def meme_params
     # *Strong params*: You need to *whitelist* what can be updated by the user
     # Never trust user data!
     params.require(:meme).permit(:title, :source, :photo)
+  end
+  def set_meme
+    @meme = Meme.find(params[:id])
   end
 end

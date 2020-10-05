@@ -19,12 +19,10 @@
 
       <div class="upvote-container" >
           <p data-target="voter.count"><%= m.get_upvotes.size %></p>
-          <a class="fas fa-angle-up" data-action="click->voter#refresh" href=""></a>
       </div>
 
-      <div class="downvote-container" data-controller="voter">
+      <div class="downvote-container">
         <p data-target="voter.count"><%= m.get_downvotes.size %></p>
-        <a class="fas fa-angle-down" data-action="click->voter#refresh" href=""></a>
       </div>
     </div>
   </div>
