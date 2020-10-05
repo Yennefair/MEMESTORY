@@ -2,7 +2,8 @@
 <h1>all memestories</h1>
 
 
-<%= render 'shared/memecard' %>
+<%# CSS in _memecard.scss %>
+
 
 <% @memes.each do |m| %>
   <div class="memecard-container">
@@ -16,30 +17,32 @@
 
     <div class="meme-votes">
 
-      <div class="upvote-container">
-        <% unless !user_signed_in? %>
-          <% if current_user.voted_for? m %>
-            <p>you  have upvoted</p>
-            <% else !current_user.voted_for? m %>
-            <p> you have downvoted</p>
+      <div class="upvote-container" data-controller="voter">
+          <% unless !user_signed_in?  %>
+            <% if current_user.voted_for? m %>
+              <p> voted</p>
+            <% else %>
+              <p>not voted yet </p>
+            <% end %>
           <% end %>
-        <% end %>
+
         <i class="fas fa-angle-up"></i>
-        <div class="nb-vote">
-          <p><%= m.get_upvotes.size %></p>
+          <p data-target="voter.count"><%= m.get_upvotes.size %></p>
         </div>
       </div>
 
       <div class="downvote-container">
-        <i class="fas fa-angle-down"></i>
-        <p><%= m.get_downvotes.size %></p>
+        <a href="" class="fas fa-angle-down" data-action="click->voter#refresh" ><%= m.get_downvotes.size %></a>
       </div>
     </div>
  </div>
 <% end %>
 
-<%= link_to "create meme", new_meme_path,class: "btn btn-primary" %>
-
+<% if user_signed_in? %>
+  <%= link_to "create meme", new_meme_path,class: "btn btn-primary" %>
+<% else %>
+  <%= link_to "Sign-in for sharing meme", user_session_path, class: "btn btn-primary" %>
+<% end %>
 
 
 

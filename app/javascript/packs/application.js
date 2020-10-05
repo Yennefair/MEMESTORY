@@ -30,7 +30,6 @@ import $ from "jquery";
 // Internal imports, e.g:
 import "bootstrap";
 
-import { initVote } from '../plugins/votes.js'
 // import { initSelect2 } from '../components/init_select2';
 
 document.addEventListener('turbolinks:load', () => {
@@ -39,3 +38,5 @@ document.addEventListener('turbolinks:load', () => {
 });
 
 
+
+import "controllers"

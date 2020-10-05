@@ -24,7 +24,6 @@ class MemesController < ApplicationController
   end
 
   def vote
-    @meme = Meme.find(1)
   end
 
   def meme_params
