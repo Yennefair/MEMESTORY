@@ -4,6 +4,10 @@ class MemesController < ApplicationController
 
   def index
     @memes = Meme.all
+    respond_to do |format|
+      format.html
+      format.json { render json: { memes: @memes.get_upvotes.size } }
+    end
   end
 
   def new
@@ -24,7 +28,14 @@ class MemesController < ApplicationController
   end
 
   def vote
+    if current_user.voted_for? @meme
+      @meme.downvote_from current_user
+    else
+      @meme.vote_by current_user
+    end
   end
+
+private
 
   def meme_params
     # *Strong params*: You need to *whitelist* what can be updated by the user

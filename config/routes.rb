@@ -4,5 +4,10 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   get 'about', to: 'pages#about'
 
-  resources :memes
+  resources :memes do
+    member do
+      put "like" => "memes#vote"
+    end
+  end
+
 end

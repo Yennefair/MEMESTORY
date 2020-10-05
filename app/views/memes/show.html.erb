@@ -1,0 +1,24 @@
+<div class="memecard-container">
+
+  <div class="meme-title">
+    <p><%= @meme.title %></p>
+  </div>
+
+  <div class="meme-image">
+      <%= cl_image_tag @meme.photo.key %>
+  </div>
+
+  <div class="meme-votes" data-controller="voter">
+
+      <div class="upvote-container" >
+        <p data-target="voter.count"><%= @meme.get_upvotes.size %></p>
+        <a class="fas fa-angle-up" data-action="click->voter#refresh" href=""></a>
+      </div>
+
+      <div class="downvote-container" data-controller="voter">
+        <p data-target="voter.count"><%= @meme.get_downvotes.size %></p>
+        <a class="fas fa-angle-down" data-action="click->voter#refresh" href=""></a>
+      </div>
+  </div>
+
+</div>
