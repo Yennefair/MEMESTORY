@@ -1,4 +1,5 @@
 class MemesController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:index, :show]
   before_action :set_meme, only: [:show, :edit, :update, :destroy, :upvote, :downvote]
   respond_to :js, :json, :html
 
