@@ -34,13 +34,14 @@ class MemesController < ApplicationController
     @meme.downvote_from current_user
   end
 
- private
+  private
 
   def meme_params
     # *Strong params*: You need to *whitelist* what can be updated by the user
     # Never trust user data!
-    params.require(:meme).permit(:title, :source, :photo)
+    params.require(:meme).permit(:title, :source, :photo, tag_list: [])
   end
+
   def set_meme
     @meme = Meme.find(params[:id])
   end
