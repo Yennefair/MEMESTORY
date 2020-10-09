@@ -1,10 +1,26 @@
-<div class="home-title-container">
 
+<div class="container col-12">
+  <div class="row ">
+    <div class="">
+     <%= cl_image_tag("tnlpq12izmekwzrnb4c6", class:'home-image'  ) %>
+    </div>
+  </div>
+
+  <div class="row">
+    <% if user_signed_in? %>
+    <p>hello  welcome</p>
+    <% end %>
+
+    <div class="col-6">
+      <div class="concept-description">
+
+      </div>
+    </div>
+
+  </div>
+</div>
+<div class="">
 </div>
 
-<div class="home-description-container">
-  <% if user_signed_in? %>
-  <p>hello  welcome</p>
 
-  <% end %>
-</div>
+

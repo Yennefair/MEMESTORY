@@ -44,7 +44,8 @@ gem 'font-awesome-sass'
 gem 'simple_form'
 gem 'acts_as_votable'
 gem 'devise'
-gem 'cloudinary', '~> 1.16.0'
+gem 'cloudinary'
+gem 'acts-as-taggable-on'
 
 group :development, :test do
   gem 'pry-byebug'

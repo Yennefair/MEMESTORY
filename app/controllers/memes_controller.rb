@@ -1,5 +1,4 @@
 class MemesController < ApplicationController
-  before_action :authenticate_user!
   before_action :set_meme, only: [:show, :edit, :update, :destroy, :upvote, :downvote]
   respond_to :js, :json, :html
 
@@ -26,8 +25,8 @@ class MemesController < ApplicationController
   def upvote
     @meme.upvote_from current_user
     respond_to do |format|
+      format.json { render json: { meme: @meme.get_upvotes.size } }
       format.html
-      format.json { render json: { memes: @memes.get_upvotes.size } }
     end
   end
 

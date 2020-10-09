@@ -11,15 +11,14 @@
   <div class="meme-votes">
 
       <div class="upvote-container" >
-        <%= link_to upvote_meme_path(@meme), class:"", method: :put do %>
-        <button class="fas fa-angle-up"></button>
-          <p><%= @meme.get_upvotes.size %></p>
+        <%= link_to upvote_meme_path(@meme), class:"fas fa-angle-up", method: :put, remote: true do %>
+        <span class="upvote-count"><%= @meme.get_upvotes.size %></span>
         <% end %>
       </div>
 
 
       <div class="downvote-container">
-        <%= link_to downvote_meme_path(@meme), class:"fas fa-angle-down", method: :put do %>
+        <%= link_to downvote_meme_path(@meme), class:"fas fa-angle-down", method: :put, remote: true do %>
         <span><%= @meme.get_downvotes.size %></span>
         <% end %>
       </div>
@@ -27,10 +26,14 @@
 
   <div data-controller="voter">
     <div class="div">
-      <span data-target="voter.count"><%= @meme.get_upvotes.size %></span>
+     <span data-target="voter.count">
+      <%= @meme.get_upvotes.size %>
+     </span>
     </div>
 
-    <button data-action="click->voter#refresh" class="btn btn-primary"></button>
+    <button data-action="click->voter#refresh">
+      <%= link_to "NEWW", upvote_meme_path(@meme), class:"btn ", method: :put, remote: true%>
+    </button>
   </div>
 
 </div>

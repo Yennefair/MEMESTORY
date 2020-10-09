@@ -1,19 +1,12 @@
 // Specific CSS for your layout css app & home
-body{
-  background-color: #ebf4f2;
+.home-image{
+  height: 60vh;
+  width:100%;
+  border-bottom-left-radius: 30%;
+  border-bottom-right-radius: 30%;
 }
 
-.home-title-container{
-  border: 5px solid black;
-  height: 25vh;
-  background-color: grey;
+.concept-description{
+  height: 200vh;
 }
 
-.home-description-container{
-  height: 190vh;
-  border: 3px solid pink;
-}
-
-.don-ecran{
-  width: 100%;
-}

@@ -1,32 +1,47 @@
 .memecard-container{
-  margin-top: 100px;
-  margin-left: 100px;
-  width: 50vh;
-  height: 70vh;
-  border: 3px solid black;
+  margin: 5vh auto 0 auto;
+  width: 65vh;
+  height: 75vh;
+  border-radius: 8px;
+  box-shadow:  4px 6px 18px 0px rgba(0,0,0,0.41);
   display: flex;
   flex-direction: column;
 }
 
 
 .meme-title{
-  height: 10vh;
+  border-radius: 8px 8px 0 0;
+  background-color: #250448;
+  height: 5vh;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+
+}
+
+.meme-title-font{
+  text-decoration: none;
+  color: white;
+  margin: 0 auto;
+}
+
+.meme-title a:hover{
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
 }
 
 .meme-image{
-
+  height: 60vh;
 }
 
 .meme-image img{
-  width : 100%
+  width : 100%;
 }
+
 .meme-votes{
   height: 10vh;
-  margin-top: 10vh;
-}
-
-
-.meme-votes{
   display: flex;
   justify-content: space-around;
 }
