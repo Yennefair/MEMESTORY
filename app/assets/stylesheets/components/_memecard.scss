@@ -6,18 +6,24 @@
   box-shadow:  4px 6px 18px 0px rgba(0,0,0,0.41);
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
 }
 
 
 .meme-title{
   border-radius: 8px 8px 0 0;
-  background-color: #250448;
+  background: rgb(47,12,84);
+  background: linear-gradient(180deg, rgba(47,12,84,1) 23%, rgba(82,50,117,1) 64%, rgba(112,83,145,1) 97%);
   height: 5vh;
   width: 100%;
   display: flex;
-  justify-content: space-around;
   align-items: center;
 
+}
+
+.user-name-logo{
+  display:flex;
+  align-items: center;
 }
 
 .meme-title-font{
@@ -25,6 +31,7 @@
   color: white;
   margin: 0 auto;
 }
+
 
 .meme-title a:hover{
   text-decoration: none;
@@ -34,6 +41,8 @@
 
 .meme-image{
   height: 60vh;
+  display: flex;
+  justify-content: space-between;
 }
 
 .meme-image img{
@@ -44,4 +53,18 @@
   height: 10vh;
   display: flex;
   justify-content: space-around;
+}
+
+.upvote-container{
+  display:flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.downvote-container{
+  display:flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
 }
