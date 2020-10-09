@@ -2,6 +2,7 @@
 
   <div class="meme-title">
     <p><%= @meme.title %></p>
+
   </div>
 
   <div class="meme-image">
@@ -34,6 +35,7 @@
     <button data-action="click->voter#refresh">
       <%= link_to "NEWW", upvote_meme_path(@meme), class:"btn ", method: :put, remote: true%>
     </button>
+
   </div>
 
 </div>

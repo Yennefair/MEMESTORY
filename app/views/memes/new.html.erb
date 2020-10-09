@@ -1,21 +1,26 @@
 <h1>new meme</h1>
 
-<div class="col-6 h">
+<div class="new-container">
   <%= simple_form_for (@meme) do |f| %>
-    <div class="row">
-      <div class="col-6">
+    <div class="">
+      <div class="">
         <%= f.input :title, class: "w-100" %>
       </div>
     </div>
-    <div class="row">
-      <div class="col-6">
+    <div class="">
+      <div class="">
         <%= f.input :source, class: "w-100" %>
+      </div>
+    </div>
+    <div class="">
+      <div class="">
+        <%= f.input :tag_list, as: :check_boxes, collection: [ "Passs" ] %>
       </div>
     </div>
     <%= f.input :photo, as: :file %>
     <div class="border my-3"></div>
     <div class="mb-2">
-      <%= f.button :submit, class: "btn btn-success w-100" %>
+      <%= f.button :submit, value:"Upload my meme", class: "btn btn-success w-100" %>
     </div>
     <div>
       <%= link_to "Back to memestories", memes_path, class: "btn btn-dark w-100"%>
