@@ -14,9 +14,9 @@
 
     <div class="meme-votes" data-controller="voter">
       <div class="upvote-container">
-      <button data-action="click->voter#refresh">
+      <a data-action="click->voter#refresh">
         <%= link_to "", upvote_meme_path(@meme), class:"fas fa-angle-up ", method: :put, remote: true%>
-      </button>
+      </a>
 
        <span class="upvote-count"data-target="voter.count">
         <%= @meme.get_upvotes.size %>
@@ -24,13 +24,26 @@
       </div>
 
       <div class="downvote-container">
-        <button data-action="click->voter#refresh">
+        <a data-action="click->voter#refresh">
           <%= link_to "", downvote_meme_path(@meme), class:"fas fa-angle-down ", method: :put, remote: true%>
-        </button>
+        </a>
 
         <span class="upvote-count"data-target="voter.count">
           <%= @meme.get_downvotes.size %>
         </span>
+      </div>
+
+      <div class="display-tags">
+        <% @meme.tag_list.each do |t| %>
+          <p> <%= t %> </p>
+        <% end %>
+
+      </div>
+      <div class="display-tags">
+        <% @meme.usertag_list.each do |t| %>
+          <p> <%= t %> </p>
+        <% end %>
+
       </div>
     </div>
 

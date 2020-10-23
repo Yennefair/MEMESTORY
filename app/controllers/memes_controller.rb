@@ -9,6 +9,11 @@ class MemesController < ApplicationController
 
   def new
     @meme = Meme.new
+    @tagsnames = []
+    Meme.tag_counts_on(:tags).each do |t|
+      @tagsnames.append(t.name)
+    end
+    @all_tags = @tagsnames.append("world")
   end
 
   def show
@@ -40,7 +45,7 @@ class MemesController < ApplicationController
   def meme_params
     # *Strong params*: You need to *whitelist* what can be updated by the user
     # Never trust user data!
-    params.require(:meme).permit(:title, :source, :photo, tag_list: [])
+    params.require(:meme).permit(:title, :source, :photo, :usertag_list, tag_list: [])
   end
 
   def set_meme

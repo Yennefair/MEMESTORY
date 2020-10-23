@@ -14,8 +14,13 @@
     </div>
     <div class="">
       <div class="">
-        <%= f.input :tag_list, as: :check_boxes, collection: [ "Passs" ] %>
+        <%= f.input :tag_list, label: "Choose a matching category", as: :check_boxes, collection: @all_tags%>
       </div>
+
+      <div class="">
+        <%= f.input :usertag_list, label: "enter your tag"%>
+      </div>
+
     </div>
     <%= f.input :photo, as: :file %>
     <div class="border my-3"></div>
