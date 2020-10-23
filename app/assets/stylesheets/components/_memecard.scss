@@ -18,7 +18,7 @@
   width: 100%;
   display: flex;
   align-items: center;
-
+  justify-content: space-between;
 }
 
 .user-name-logo{
@@ -29,7 +29,7 @@
 .meme-title-font{
   text-decoration: none;
   color: white;
-  margin: 0 auto;
+  margin: auto 5px auto 5px;
 }
 
 
