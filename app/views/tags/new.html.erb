@@ -1,0 +1,11 @@
+
+
+<%= form_tag "/tags" do %>
+<%= text_field_tag :name %>
+<%= submit_tag "Add tag" %>
+<% end %>
+
+<%= simple_form_for @memes do |f| %>
+  <%= f.input :tag_list %>
+  <%= f.button :submit, "create new", class: "btn btn-success mb-2 w-100" %>
+<% end %>

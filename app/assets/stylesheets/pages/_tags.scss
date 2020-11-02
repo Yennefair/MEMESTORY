@@ -1,0 +1,26 @@
+// CSS for CARDTAGS in index TAGS
+
+.categroies-container {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.user-categroies-container {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.category-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  border: 2px solid black;
+  width: 25vh;
+  height: 20vh;
+  text-decoration: none;
+  text-align: center;
+}
+

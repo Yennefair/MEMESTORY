@@ -2,11 +2,20 @@
 .home-image{
   height: 60vh;
   width:100%;
-  border-bottom-left-radius: 30%;
-  border-bottom-right-radius: 30%;
+  box-shadow: 0px 10px 6px 0px rgba(0,0,0,0.34);
 }
 
 .concept-description{
-  height: 200vh;
+ height: 200vh;
+ display: flex;
+ justify-content: space-around;
+ flex-wrap: wrap;
+}
+
+.concept-1, .concept-2, .concetp-3{
+  width: 50vh;
+  height: 60vh;
+  margin-top: 10vh;
+  border: 2px solid black;
 }
 

@@ -5,4 +5,14 @@ class PagesController < ApplicationController
 
   def about
   end
+
+  def dashboard
+    @user = current_user
+    @memes = Meme.all
+    @mymemes = @memes.user
+  end
+
+  def settings
+    @user = current_user
+  end
 end
