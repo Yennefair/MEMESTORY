@@ -18,7 +18,14 @@ fridge = User.create!(
 puts "#{User.count} users created"
 # --------------------------------
 
+firstmeme = Meme.create!(
+  title: "seedmeme",
+  source: "seed",
+  tag_list: ["fun", "world"],
+  usertag_list: "usertagtest",
+  user: fridge
+  )
 
 
-puts "#{Meme.count} games created"
+puts "#{Meme.count} memes created"
 # --------------------------------

@@ -1,15 +1,20 @@
+<h1>dashboard</h1>
+
+<div class="container col-10 ">
+
+<% @mymemes.current_user.each do |m| %>
 <div class="memecard-container">
 
   <div class="meme-title">
-    <p class='meme-title-font'><%= @meme.title%></p>
+    <p class='meme-title-font'><%= m.title%></p>
     <div class="user-name-logo mr-1 ">
       <i class="far fa-user mr-1 meme-title-font"></i>
-      <p class="meme-title-font"> <%= @memeuser %> </p>
+      <p class="meme-title-font"> <%= m.current_user.username %> </p>
     </div>
   </div>
 
   <div class="meme-image">
-      <%= cl_image_tag @meme.photo.key %>
+      <%= cl_image_tag m.photo.key %>
   </div>
 
     <div class="meme-votes" data-controller="voter">
@@ -48,3 +53,17 @@
     </div>
 
 </div>
+
+<% end %>
+
+</div>
+
+
+  <div class="row">
+    <div class="col-5">
+
+    </div>
+    <div class="col-5">
+
+    </div>
+  </div>

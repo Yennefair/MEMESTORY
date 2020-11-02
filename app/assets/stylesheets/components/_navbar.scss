@@ -26,12 +26,19 @@
   margin: 0 2vh;
 }
 
-.ul-container li:hover{
+.hover-style:hover{
   transition: 0.8s all;
   background-color: #FDCB02;
   box-shadow: 0px 0px 18px 5px rgba(253, 203, 2,0.3);
   border-radius: 5px;
   }
+
+.avatar:hover{
+  transition: 0.5s all;
+  background-color: #FDCB02;
+  box-shadow: 0px 0px 18px 5px rgba(253, 203, 2,0.3);
+
+}
 
 
 .nav-font{

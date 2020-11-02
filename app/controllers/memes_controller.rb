@@ -13,19 +13,38 @@ class MemesController < ApplicationController
     Meme.tag_counts_on(:tags).each do |t|
       @tagsnames.append(t.name)
     end
-    @all_tags = @tagsnames.append("world")
+    @all_tags = @tagsnames
   end
 
   def show
+    @memeuser = @meme.user_id
+    @memeuser = User.find(@memeuser)
+    @memeuser = @memeuser.username
   end
 
   def create
-    @meme = Meme.new(meme_params)
+    @meme = Meme.create(meme_params)
     if @meme.save
       redirect_to memes_path
     else
       render :new
     end
+    @meme.user_id = current_user.id
+  end
+
+  def edit
+    @meme = Meme.find(params[:id])
+  end
+
+  def update
+    @meme = Meme.find(params[:id])
+    @meme.update(meme_params)
+    redirect_to meme_path(@meme)
+  end
+
+  def destroy
+    @meme.destroy
+    redirect_to memes_path
   end
 
   def upvote
@@ -45,7 +64,7 @@ class MemesController < ApplicationController
   def meme_params
     # *Strong params*: You need to *whitelist* what can be updated by the user
     # Never trust user data!
-    params.require(:meme).permit(:title, :source, :photo, :usertag_list, tag_list: [])
+    params.require(:meme).permit(:title, :source, :photo, :user_id, :usertag_list, tag_list: [])
   end
 
   def set_meme
