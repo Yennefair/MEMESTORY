@@ -23,13 +23,13 @@ class MemesController < ApplicationController
   end
 
   def create
-    @meme = Meme.create(meme_params)
+    @meme = Meme.new(meme_params)
+    @meme.user = current_user
     if @meme.save
       redirect_to memes_path
     else
-      render :new
+      redirect_to tags_path
     end
-    @meme.user_id = current_user.id
   end
 
   def edit
@@ -64,7 +64,7 @@ class MemesController < ApplicationController
   def meme_params
     # *Strong params*: You need to *whitelist* what can be updated by the user
     # Never trust user data!
-    params.require(:meme).permit(:title, :source, :photo, :user_id, :usertag_list, tag_list: [])
+    params.require(:meme).permit(:title, :source, :photo, :usertag_list, tag_list: [])
   end
 
   def set_meme
